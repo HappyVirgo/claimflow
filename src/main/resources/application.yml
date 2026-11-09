@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: claimflow
+  datasource:
+    url: jdbc:h2:mem:claimflow;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    enabled: true
+  mvc:
+    problemdetails:
+      enabled: true
+
+claimflow:
+  triage:
+    # Claims above this total always go to a human adjuster, whatever the risk score.
+    fast-track-max-amount: 15000
+  risk:
+    model-path: classpath:model/risk-model.json
+
